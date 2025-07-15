@@ -67,6 +67,9 @@ services:
       - mysql
 
   # phpMyAdmin
+  # Buat Username : root
+  # dan Password : root123
+  # agar memiliki aksess tambah database baru
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
@@ -76,8 +79,8 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: lansia
-      PMA_PASSWORD: lansia321
+      PMA_USER: root
+      PMA_PASSWORD: root123
       PMA_ARBITRARY: 1
 
 volumes:
