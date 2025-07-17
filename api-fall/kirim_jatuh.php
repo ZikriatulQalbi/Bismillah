@@ -1,4 +1,5 @@
 <?php
+
 include 'koneksi.php';
 
 // Tampilkan error (debugging saat pengembangan)

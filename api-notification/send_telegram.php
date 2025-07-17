@@ -1,4 +1,5 @@
 <?php
+
 // Konfigurasi Bot Telegram
 $botToken = "7892364006:AAGPraavraQgz4GlKVgU_-sWM8eUMyNG9QY";      // Ganti dengan token bot kamu dari BotFather
 $chatId   = "1292858444";        // Ganti dengan chat ID yang menerima notifikasi
