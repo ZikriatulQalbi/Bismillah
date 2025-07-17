@@ -65,6 +65,15 @@ services:
       - ./api-riwayat:/var/www/html
     depends_on:
       - mysql
+      
+  api-notification:
+    build: ./api-notification
+    container_name: api_notification
+    restart: always
+    ports:
+      - "8006:80"
+    volumes:
+      - ./api-notification:/var/www/html
 
   # phpMyAdmin
   # Buat Username : root

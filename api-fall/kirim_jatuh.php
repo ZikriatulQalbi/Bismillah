@@ -29,6 +29,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             VALUES ('$id_lansia', '$event', '$waktu')";
 
     if ($koneksi->query($sql)) {
+        // Kirim notifikasi ke Telegram via microservice notifikasi
+        $pesan = [
+            // 'pesan' => "🚨 Lansia ID $id_lansia terdeteksi JATUH pada $waktu"
+            'pesan' => " JATUH TERDETEKSI 🚨"
+        ];
+
+        file_get_contents("http://api-notification/send_telegram.php", false, stream_context_create([
+            'http' => [
+                'method'  => 'POST',
+                'header'  => 'Content-Type: application/json',
+                'content' => json_encode($pesan)
+            ]
+        ]));
+
         echo json_encode(["status" => "success", "message" => "Data jatuh berhasil disimpan"]);
     } else {
         echo json_encode(["status" => "error", "message" => $koneksi->error]);
